@@ -1,0 +1,66 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000191a4df54c0 .scope module, "SRLatchDFTB" "SRLatchDFTB" 2 1;
+ .timescale 0 0;
+v00000191a4daa900_0 .net "NOTQ", 0 0, L_00000191a4dc3170;  1 drivers
+v00000191a4daa9a0_0 .var "NOTR", 0 0;
+v00000191a4daaa40_0 .var "NOTS", 0 0;
+v00000191a4daaae0_0 .net "Q", 0 0, L_00000191a4dc2bc0;  1 drivers
+S_00000191a4df5650 .scope module, "dut" "SRLatchDF" 2 5, 3 1 0, S_00000191a4df54c0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "nots";
+    .port_info 1 /INPUT 1 "notr";
+    .port_info 2 /OUTPUT 1 "q";
+    .port_info 3 /OUTPUT 1 "notq";
+L_00000191a4df5920 .functor AND 1, v00000191a4daaa40_0, L_00000191a4dc3170, C4<1>, C4<1>;
+L_00000191a4dc2bc0 .functor NOT 1, L_00000191a4df5920, C4<0>, C4<0>, C4<0>;
+L_00000191a4da8b10 .functor AND 1, v00000191a4daa9a0_0, L_00000191a4dc2bc0, C4<1>, C4<1>;
+L_00000191a4dc3170 .functor NOT 1, L_00000191a4da8b10, C4<0>, C4<0>, C4<0>;
+v00000191a4da8a70_0 .net *"_ivl_0", 0 0, L_00000191a4df5920;  1 drivers
+v00000191a4dc2b20_0 .net *"_ivl_4", 0 0, L_00000191a4da8b10;  1 drivers
+v00000191a4dabd70_0 .net "notq", 0 0, L_00000191a4dc3170;  alias, 1 drivers
+v00000191a4dabe10_0 .net "notr", 0 0, v00000191a4daa9a0_0;  1 drivers
+v00000191a4df57e0_0 .net "nots", 0 0, v00000191a4daaa40_0;  1 drivers
+v00000191a4df5880_0 .net "q", 0 0, L_00000191a4dc2bc0;  alias, 1 drivers
+    .scope S_00000191a4df54c0;
+T_0 ;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000191a4daaa40_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000191a4daa9a0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000191a4daaa40_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000191a4daa9a0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000191a4daaa40_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000191a4daa9a0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000191a4daaa40_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000191a4daa9a0_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_00000191a4df54c0;
+T_1 ;
+    %vpi_call 2 15 "$monitor", "simtime = %g, NOTS =%b, NOTR =%b, Q =%b, NOTQ =%b", $time, v00000191a4daaa40_0, v00000191a4daa9a0_0, v00000191a4daaae0_0, v00000191a4daa900_0 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "SRLatchDFTB.v";
+    "SRLatchDF.v";

@@ -1,0 +1,105 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000018af4c269f0 .scope module, "GatedSRLatchGLTB" "GatedSRLatchGLTB" 2 1;
+ .timescale 0 0;
+v0000018af4bdab70_0 .var "E", 0 0;
+v0000018af4bdac10_0 .net "Q", 0 0, L_0000018af4bd95a0;  1 drivers
+v0000018af4bdacb0_0 .var "R", 0 0;
+v0000018af4bdad50_0 .var "S", 0 0;
+v0000018af4bdadf0_0 .net "notQ", 0 0, L_0000018af4bd9610;  1 drivers
+S_0000018af4c26b80 .scope module, "dut" "GatedSRLatchGL" 2 7, 3 1 0, S_0000018af4c269f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "s";
+    .port_info 1 /INPUT 1 "r";
+    .port_info 2 /INPUT 1 "e";
+    .port_info 3 /OUTPUT 1 "q";
+    .port_info 4 /OUTPUT 1 "notq";
+L_0000018af4bd9530 .functor AND 1, v0000018af4bdab70_0, v0000018af4bdad50_0, C4<1>, C4<1>;
+L_0000018af4bd9840 .functor AND 1, v0000018af4bdab70_0, v0000018af4bdacb0_0, C4<1>, C4<1>;
+L_0000018af4bd95a0 .functor NOR 1, L_0000018af4bd9530, L_0000018af4bd9610, C4<0>, C4<0>;
+L_0000018af4bd9610 .functor NOR 1, L_0000018af4bd9840, L_0000018af4bd95a0, C4<0>, C4<0>;
+v0000018af4c26d10_0 .net "e", 0 0, v0000018af4bdab70_0;  1 drivers
+v0000018af4bd9c40_0 .net "notq", 0 0, L_0000018af4bd9610;  alias, 1 drivers
+v0000018af4bf2b20_0 .net "notr", 0 0, L_0000018af4bd9840;  1 drivers
+v0000018af4bda8f0_0 .net "nots", 0 0, L_0000018af4bd9530;  1 drivers
+v0000018af4bda990_0 .net "q", 0 0, L_0000018af4bd95a0;  alias, 1 drivers
+v0000018af4bdaa30_0 .net "r", 0 0, v0000018af4bdacb0_0;  1 drivers
+v0000018af4bdaad0_0 .net "s", 0 0, v0000018af4bdad50_0;  1 drivers
+    .scope S_0000018af4c269f0;
+T_0 ;
+    %vpi_call 2 10 "$monitor", "simtime = %g, E = %b, S = %b, R = %b, Q = %b, notQ = %b", $time, v0000018af4bdab70_0, v0000018af4bdad50_0, v0000018af4bdacb0_0, v0000018af4bdac10_0, v0000018af4bdadf0_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0000018af4c269f0;
+T_1 ;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdab70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdad50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdacb0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdab70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdad50_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdacb0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdab70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdad50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdacb0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdab70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdad50_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdacb0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdab70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdad50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdacb0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdab70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdad50_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdacb0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdab70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdad50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018af4bdacb0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdab70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdad50_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000018af4bdacb0_0, 0, 1;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "GateSRLatchGLTB.v";
+    "GatedSRLatchGL.v";
