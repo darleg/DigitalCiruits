@@ -1,2 +1,1 @@
-![](CP.Half Ader.Png)
 
